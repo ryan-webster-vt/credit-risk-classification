@@ -18,7 +18,7 @@ Standard classification models trained on imbalanced data tend to over-predict t
 | Random Forest | 64.8% | 0.550 | **0.852** | 0.352 |
 | KNN (k=14) | 64.8% | 0.556 | 0.840 | 0.352 |
 
-Logistic Regression achieved the best overall balance — highest accuracy, lowest MSE, and strong sensitivity after threshold tuning. Random Forest and KNN trade sensitivity for specificity, which may be preferable in contexts where false approvals are more costly than false denials.
+Logistic Regression achieved the best overall balance: highest accuracy, lowest MSE, and strong sensitivity after threshold tuning. Random Forest and KNN trade sensitivity for specificity, which may be preferable in contexts where false approvals are more costly than false denials.
 
 ---
 
@@ -61,7 +61,7 @@ Optimized thresholds:
 - KNN: **0.72** (default: 0.50)
 
 ### Variable Importance (Random Forest)
-Top predictors by Mean Decrease Accuracy: `checking_status`, `duration`, `credit_amount`, `age`, `employment`, `purpose` — consistent with domain knowledge that account standing and loan size are primary drivers of default risk.
+Top predictors by Mean Decrease Accuracy: `checking_status`, `duration`, `credit_amount`, `age`, `employment`, `purpose`, consistent with domain knowledge that account standing and loan size are primary drivers of default risk.
 
 ---
 
@@ -96,6 +96,6 @@ All random seeds are fixed (`set.seed(1)`) for full reproducibility.
 
 ## Takeaways
 
-- Threshold tuning meaningfully changes model behavior — the Random Forest's specificity improved from 48% to 85% by raising the threshold from 0.50 to 0.75, at the cost of sensitivity.
+- Threshold tuning meaningfully changes model behavior. The Random Forest's specificity improved from 48% to 85% by raising the threshold from 0.50 to 0.75, at the cost of sensitivity.
 - Logistic Regression outperformed both ensemble and distance-based methods on this dataset, likely because the decision boundary is approximately linear in the most predictive features.
-- The Youden Index is a practical threshold selection criterion when false positives and false negatives carry different costs — a common situation in financial and clinical applications.
+- The Youden Index is a practical threshold selection criterion when false positives and false negatives carry different costs, a common situation in financial and clinical applications.
